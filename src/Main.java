@@ -1,12 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-         int[] floors = {3, 10, 17 , 22, 16, 14};
+        int certCount = 1000;
+        int[] certNumbers = new int[certCount];
+        for(int i = 0; i < certNumbers.length; i++){
+            certNumbers[i] = 1_000_000 + (int)Math.round(8_999_999 * Math.random());
+        }
 
-         floors[1] = 100;
-
-        System.out.println(floors.length);
-         System.out.println(floors[1]);
-         int[] numbers = new int[20];
-
+        for (int i = 0; i < certNumbers.length; i++) {
+            System.out.println(certNumbers[i]);
+        }
     }
 }
