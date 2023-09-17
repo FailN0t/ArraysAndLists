@@ -1,19 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        int certCount = 1000;
-        int[] certNumbers = new int[certCount];
-        for (int i = 0; i < certNumbers.length; i++) {
-            certNumbers[i] = 1_000_000 + (int) Math.round(8_999_999 * Math.random());
+        Product[] products = {
+                new Product("milk", 75),
+                new Product("Butter", 120),
+                new Product("chise", 180),
+                new Product("teapod", 1890),
+                new Product("water filter", 1200)
+        };
+
+        int MIN_PRICE_FOR_DISCOUNT = 1000;
+
+        double discount = 0.1;
+        for(int i = 0; i<products.length; i++){
+            if(products[i].getPrice() >= MIN_PRICE_FOR_DISCOUNT){
+                products[i] = new Product(products[i].getName(), (int)(products[i].getPrice() * (1 - discount)));
+            }
         }
 
-        int winnersRate = 100;
-        int[] winnerNumbers = new int[certNumbers.length / winnersRate];
-        int win = 0;
-        for (int i = 0; i < certNumbers.length; i += winnersRate) {
-            winnerNumbers[win++] = certNumbers[i];
-        }
-        for (int i:winnerNumbers) {
-            System.out.println(i);
+        for(Product product:products){
+            System.out.println(product);
         }
     }
 }
