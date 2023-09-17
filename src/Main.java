@@ -7,6 +7,6 @@ public class Main {
         System.out.println(floors.length);
          System.out.println(floors[1]);
          int[] numbers = new int[20];
-
+        System.out.println("hello");
     }
 }
