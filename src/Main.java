@@ -2,20 +2,33 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        int winnersRate = 100;
-        int certCount = 1000;
-        int[] certNumbers = new int[certCount];
-        ArrayList<Integer> winnersCarts = new ArrayList<>();
-        for(int i = 0; i < certNumbers.length; i++) {
-            certNumbers[i] = 1_000_000 + (int) Math.round(8_999_999 * Math.random());
-            if (i % winnersRate == 0) {
-                winnersCarts.add(certNumbers[i]);
-            }
+        ArrayList<Task> taskArrayList = new ArrayList<>() {{
+            add(new Task("Купить молока", "5 пакетов"));
+            add(new Task("Покормить кота", "новым кормом"));
+            add(new Task("Сжечь секретное", "Особенно из синей сумки"));
+        }};
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            System.out.println(taskArrayList.get(i));
         }
+        System.out.println();
+        taskArrayList.add(0,new Task( "Очень срочная задача", ""));
 
-
-        for (int i = 0; i < winnersCarts.size(); i++) {
-            System.out.println(winnersCarts.get(i));
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            System.out.println(taskArrayList.get(i));
         }
+        System.out.println();
+
+        taskArrayList.remove(1);
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            System.out.println(taskArrayList.get(i));
+        }
+        System.out.println();
+
+        taskArrayList.set(1, new Task("Покормить лошадь","Тоже новым кормом"));
+        for (int i = 0; i < taskArrayList.size(); i++) {
+            System.out.println(taskArrayList.get(i));
+        }
+        System.out.println();
+
     }
 }
